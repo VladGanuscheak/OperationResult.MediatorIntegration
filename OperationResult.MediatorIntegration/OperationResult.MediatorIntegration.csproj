@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.6.3" />
+    <PackageReference Include="MediatR" Version="5.1.0" />
+    <PackageReference Include="OperationResult.Extensions" Version="1.0.0" />
+    <PackageReference Include="OperationResult.Net" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
