@@ -2,8 +2,35 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
+    <PackageId>OperationResult.MediatorIntegration</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Ganușceac Vlad</Authors>
+    <Product>OperationResult.MediatorIntegration</Product>
+    <Title>OperationResult.MediatorIntegration</Title>
+    <Description>Defines contracts for MediatR's Query and Command which use OperationResult NuGet library. 
+Implements MediatR's pipelines for error handling and request validation.
+</Description>
+    <RepositoryUrl>https://github.com/VladGanuscheak/OperationResult.MediatorIntegration</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>result;operationresult;fluentoperationresult;query;command;cqrs;mediator;mediatr;pipeline;.net;dotnet;c#</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="C:\Users\User\Desktop\Logos\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.6.3" />
     <PackageReference Include="MediatR" Version="5.1.0" />
