@@ -17,7 +17,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
                 var response = await next();
                 return response;
             }
-            catch (Exception exception) 
+            catch (Exception exception)
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult), typeof(OperationResult<>)))
                 {

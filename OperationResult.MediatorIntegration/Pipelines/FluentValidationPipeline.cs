@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace OperationResult.MediatorIntegration.Pipelines
 {
-    public class FluentValidationPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public class FluentValidationPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest : IRequest<TResponse>
+        where TResponse : OperationResult
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
