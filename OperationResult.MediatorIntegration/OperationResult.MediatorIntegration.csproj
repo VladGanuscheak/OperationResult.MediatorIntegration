@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <PackageId>OperationResult.MediatorIntegration</PackageId>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Authors>Ganușceac Vlad</Authors>
     <Product>OperationResult.MediatorIntegration</Product>
     <Title>OperationResult.MediatorIntegration</Title>
@@ -18,7 +18,7 @@ Implements MediatR's pipelines for error handling and request validation.
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>Migrated to .Net Core 2.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Migrated to .Net Core 2.2</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,11 +35,11 @@ Implements MediatR's pipelines for error handling and request validation.
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.8.0" />
     <PackageReference Include="MediatR" Version="9.0.0" />
-    <PackageReference Include="OperationResult.Extensions" Version="2.1.1" />
+    <PackageReference Include="OperationResult.Extensions" Version="2.2.0" />
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.30" />
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.2.8" />
   </ItemGroup>
 
 </Project>
