@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using OperationResult.Extensions;
+using OperationResult.Results;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,9 +20,20 @@ namespace OperationResult.MediatorIntegration.Pipelines
             }
             catch (Exception exception)
             {
-                if (typeof(TResponse).IsIn(typeof(OperationResult), typeof(OperationResult<>)))
+                if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
                     return (dynamic)OperationResultHelper.BadRequest(exception.Message);
+                }
+
+                if (typeof(TResponse).IsIn(typeof(OperationResult<>)))
+                {
+                    var responseType = typeof(TResponse);
+
+                    var typeArguments = responseType.GetGenericArguments();
+                    var closedGenericType = typeof(FailureOperationResult<>).MakeGenericType(typeArguments);
+
+                    dynamic result = Activator.CreateInstance(closedGenericType);
+                    return result.WithMessage(exception.Message);
                 }
 
                 throw;

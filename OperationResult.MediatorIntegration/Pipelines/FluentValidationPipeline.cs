@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using MediatR;
 using OperationResult.Extensions;
+using OperationResult.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -31,9 +33,20 @@ namespace OperationResult.MediatorIntegration.Pipelines
 
             if (failures.Any())
             {
-                if (typeof(TResponse).IsIn(typeof(OperationResult), typeof(OperationResult<>)))
+                if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
                     return (dynamic)OperationResultHelper.BadRequest(failures.Select(x => x.ErrorMessage).ToArray());
+                }
+
+                if (typeof(TResponse).IsIn(typeof(OperationResult<>)))
+                {
+                    var responseType = typeof(TResponse);
+
+                    var typeArguments = responseType.GetGenericArguments();
+                    var closedGenericType = typeof(FailureOperationResult<>).MakeGenericType(typeArguments);
+
+                    dynamic result = Activator.CreateInstance(closedGenericType);
+                    return result.WithMessages(failures.Select(x => x.ErrorMessage).ToList());
                 }
             }
 
