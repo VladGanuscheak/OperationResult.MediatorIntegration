@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>OperationResult.MediatorIntegration</PackageId>
-    <Version>3.1.0</Version>
+    <Version>3.1.1</Version>
     <Authors>Ganușceac Vlad</Authors>
     <Product>OperationResult.MediatorIntegration</Product>
     <Title>OperationResult.MediatorIntegration</Title>
@@ -18,7 +18,8 @@ Implements MediatR's pipelines for error handling and request validation.
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>Migrated to .Net Core 3.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Adjusted both exception handling and FluentValidation mediator's pipelines. 
+Added DataAnnotation validation pipeline.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
