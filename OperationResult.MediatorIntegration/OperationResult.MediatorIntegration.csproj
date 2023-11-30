@@ -18,7 +18,8 @@ Implements MediatR's pipelines for error handling and request validation.
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>Adjusted both exception handling and FluentValidation mediator's pipelines.</PackageReleaseNotes>
+    <PackageReleaseNotes>Adjusted both exception handling and FluentValidation mediator's pipelines. 
+Added DataAnnotation validation pipeline.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
