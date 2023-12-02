@@ -26,7 +26,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
-                    return (dynamic)OperationResultHelper.BadRequest(validationResults.Select(result => result.ErrorMessage).ToArray());
+                    return (dynamic)OperationResultExtensions.BadRequest(validationResults.Select(result => result.ErrorMessage).ToArray());
                 }
 
                 if (typeof(TResponse).IsIn(typeof(OperationResult<>)))

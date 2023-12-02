@@ -23,7 +23,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
-                    return (dynamic)OperationResultHelper.BadRequest(exception.Message);
+                    return (dynamic)OperationResultExtensions.BadRequest(exception.Message);
                 }
 
                 if (typeof(TResponse).IsIn(typeof(OperationResult<>)))
