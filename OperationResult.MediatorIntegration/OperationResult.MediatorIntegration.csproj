@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
     <PackageId>OperationResult.MediatorIntegration</PackageId>
-    <Version>1.1.1</Version>
+    <Version>1.0.1</Version>
     <Authors>Ganușceac Vlad</Authors>
     <Product>OperationResult.MediatorIntegration</Product>
     <Title>OperationResult.MediatorIntegration</Title>
@@ -36,11 +36,11 @@ Added DataAnnotation validation pipeline.</PackageReleaseNotes>
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.6.3" />
     <PackageReference Include="MediatR" Version="5.1.0" />
-    <PackageReference Include="OperationResult.Extensions" Version="1.1.0" />
+    <PackageReference Include="OperationResult.Extensions" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="1.1.13">
+    <PackageReference Update="Microsoft.NETCore.App" Version="1.0.16">
       <AllowExplicitVersion>true</AllowExplicitVersion>
     </PackageReference>
   </ItemGroup>
