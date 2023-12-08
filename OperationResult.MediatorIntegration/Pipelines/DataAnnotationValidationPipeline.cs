@@ -21,7 +21,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
 
             bool isValid = Validator.TryValidateObject(request, validationContext, validationResults, validateAllProperties: true);
 
-            if (!isValid) 
+            if (!isValid)
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
@@ -36,7 +36,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
                     var closedGenericType = typeof(FailureOperationResult<>).MakeGenericType(typeArguments);
 
                     dynamic result = Activator.CreateInstance(closedGenericType);
-                    return result.WithMessages(validationResults.Select(result => result.ErrorMessage).ToList());
+                    return result.WithMessages(validationResults.Select(x => x.ErrorMessage).ToList());
                 }
             }
 
