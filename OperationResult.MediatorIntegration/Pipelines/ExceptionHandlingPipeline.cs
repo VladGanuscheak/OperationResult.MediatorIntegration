@@ -2,7 +2,6 @@
 using OperationResult.Extensions;
 using OperationResult.Results;
 using System;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +11,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
         where TRequest : IRequest<TResponse>
         where TResponse : OperationResult
     {
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             try
             {
@@ -23,7 +22,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
-                    return (dynamic)OperationResultExtensions.BadRequest(exception.Message);
+                    return (dynamic)OperationResultHelper.BadRequest(exception.Message);
                 }
 
                 if (typeof(TResponse).IsIn(typeof(OperationResult<>)))

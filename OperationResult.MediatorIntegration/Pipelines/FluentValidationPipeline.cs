@@ -5,7 +5,6 @@ using OperationResult.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +21,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
             _validators = validators;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             if (!_validators.Any()) return await next();
             var context = new ValidationContext<TRequest>(request);
@@ -36,7 +35,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
-                    return (dynamic)OperationResultExtensions.BadRequest(failures.Select(x => x.ErrorMessage).ToArray());
+                    return (dynamic)OperationResultHelper.BadRequest(failures.Select(x => x.ErrorMessage).ToArray());
                 }
 
                 if (typeof(TResponse).IsIn(typeof(OperationResult<>)))
