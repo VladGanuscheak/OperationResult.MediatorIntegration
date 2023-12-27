@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <PackageId>OperationResult.MediatorIntegration</PackageId>
-    <Version>7.0.0</Version>
+    <Version>8.0.0</Version>
     <Authors>Ganușceac Vlad</Authors>
     <Product>OperationResult.MediatorIntegration</Product>
     <Title>OperationResult.MediatorIntegration</Title>
@@ -18,7 +18,7 @@ Implements MediatR's pipelines for error handling and request validation.
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>Migrated to .Net 7.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Migrated to .Net 8.0</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,9 +33,9 @@ Implements MediatR's pipelines for error handling and request validation.
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.8.1" />
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
-    <PackageReference Include="OperationResult.Extensions" Version="7.0.0" />
+    <PackageReference Include="OperationResult.Extensions" Version="8.0.0" />
   </ItemGroup>
   
 </Project>
