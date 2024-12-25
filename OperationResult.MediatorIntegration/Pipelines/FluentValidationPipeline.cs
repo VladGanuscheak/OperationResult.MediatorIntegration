@@ -10,16 +10,11 @@ using System.Threading.Tasks;
 
 namespace OperationResult.MediatorIntegration.Pipelines
 {
-    public class FluentValidationPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class FluentValidationPipeline<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators) : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
         where TResponse : OperationResult
     {
-        private readonly IEnumerable<IValidator<TRequest>> _validators;
-
-        public FluentValidationPipeline(IEnumerable<IValidator<TRequest>> validators)
-        {
-            _validators = validators;
-        }
+        private readonly IEnumerable<IValidator<TRequest>> _validators = validators;
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
@@ -31,7 +26,7 @@ namespace OperationResult.MediatorIntegration.Pipelines
                 .Where(f => f != null)
                 .ToList();
 
-            if (failures.Any())
+            if (failures.Count > 0)
             {
                 if (typeof(TResponse).IsIn(typeof(OperationResult)))
                 {
